@@ -1,0 +1,29 @@
+[package]
+name = "as5048a-async"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.87"
+authors = ["Sam Collins <sam@scollins.co>"]
+description = "Async driver for AS5048A 14-bit magnetic rotary position sensor with SPI interface"
+repository = "https://github.com/MightySCollins/as5048a-async"
+documentation = "https://docs.rs/as5048a-async"
+readme = "README.md"
+license = "MIT"
+keywords = ["embedded", "async", "sensor", "spi", "as5048a"]
+categories = ["embedded", "hardware-support", "no-std"]
+autoexamples = false
+include = [
+    "src/**",
+]
+
+[dependencies]
+defmt = { version = "1.0", optional = true }
+embedded-hal = "1.0"
+embedded-hal-async = "1.0"
+
+[dev-dependencies]
+embedded-hal-mock = { version = "0.11", features = ["eh1", "embedded-hal-async"] }
+tokio = { version = "1", features = ["macros", "rt"] }
+
+[features]
+defmt = ["dep:defmt"]
