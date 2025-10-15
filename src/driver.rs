@@ -11,7 +11,7 @@ const DATA_MASK: u16 = 0x3FFF;
 const NOP_COMMAND: u16 = 0x0000;
 
 /// Maximum angle value (14-bit: 0-16383, representing 0-360°)
-pub const ANGLE_MAX: u16 = 0x3FFF;
+pub const ANGLE_MAX: u16 = 0x3FFF + 1;
 
 /// AS5048A driver instance (asynchronous)
 #[derive(Debug)]

@@ -1,8 +1,9 @@
 # as5048a-async
 
 [![Crates.io](https://img.shields.io/crates/v/as5048a-async.svg)](https://crates.io/crates/as5048a-async)
-[![Documentation](https://docs.rs/as5048a-async/badge.svg)](https://docs.rs/as5048a-async)
-[![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](LICENSE)
+[![Documentation](https://img.shields.io/docsrs/as5048a-async)](https://docs.rs/as5048a-async)
+[![License](https://img.shields.io/crates/l/as5048a-async)]
+
 
 Async Rust driver for the **AS5048A** 14-bit magnetic rotary position sensor using the SPI interface.
 
@@ -14,22 +15,15 @@ This driver is designed for embedded systems using [`embedded-hal-async`](https:
 - `no_std` compatible
 - `forbid(unsafe_code)` - 100% safe Rust
 
-## SPI Requirements
+## AS5048A Requirements
 
 The AS5048A is a 14-bit rotary position sensor with SPI interface:
 - **Resolution:** 14-bit (16384 positions, 0.022°/LSB)
-- **SPI Mode:** Mode 1 (CPOL=0, CPHA=1) - **CRITICAL: Wrong mode causes errors**
+- **SPI Mode:** Mode 1 (CPOL=0, CPHA=1)
 - **Max Clock:** 10 MHz (recommend 1-3 MHz for initial testing)
 - **Supply:** 3.3V or 5V
 
-**IMPORTANT:** The AS5048A requires SPI Mode 1. Using Mode 0 (the default on many platforms) will cause parity errors and communication failures.
-
-```rust
-// Configure SPI Mode 1
-spi_config.mode = spi::MODE_1;
-```
-
-For magnetic requirements and detailed specifications, see the [AS5048A Datasheet](https://ams.com/documents/20143/36005/AS5048_DS000298_4-00.pdf).
+For more details read the full [AS5048A Datasheet](https://look.ams-osram.com/m/287d7ad97d1ca22e/original/AS5048-DS000298.pdf).
 
 ## Installation
 
@@ -94,9 +88,10 @@ This crate requires Rust 1.87 or later.
 - [API Documentation](https://docs.rs/as5048a-async)
 - [AS5048A Datasheet](https://look.ams-osram.com/m/287d7ad97d1ca22e/original/AS5048-DS000298.pdf)
 
-## License
+## Inspired by
 
-Licensed under either of Apache License 2.0 or MIT license at your option.
+ - https://github.com/uwearzt/as5048a
+ - https://github.com/barafael/as5600-rs
 
 ## Contributing
 
